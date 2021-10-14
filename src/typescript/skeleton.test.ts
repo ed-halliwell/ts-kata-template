@@ -5,6 +5,8 @@ import {
   spinWords,
   spinWordsWithMap,
   outlier,
+  cakes,
+  fixTheMeerkat,
 } from "./skeleton";
 
 test("sum adds two numbers", () => {
@@ -49,4 +51,47 @@ test("Returns a sentence with words over 5 characters reversed.", () => {
   expect(spinWordsWithMap("Hey fellow warriors")).toBe("Hey wollef sroirraw");
   expect(spinWordsWithMap("This is a test")).toBe("This is a test");
   expect(spinWordsWithMap("This is another test")).toBe("This is rehtona test");
+});
+
+test("something", () => {
+  expect(
+    cakes(
+      { flour: 500, sugar: 200, eggs: 1 },
+      { flour: 1200, sugar: 1200, eggs: 5, milk: 200 },
+    ),
+  ).toBe(2);
+  expect(
+    cakes(
+      { apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100 },
+      { sugar: 500, flour: 2000, milk: 2000 },
+    ),
+  ).toBe(0);
+});
+
+test("Animals wrong way round", () => {
+  expect(fixTheMeerkat(["tail", "body", "head"])).toEqual([
+    "head",
+    "body",
+    "tail",
+  ]);
+  expect(fixTheMeerkat(["tails", "body", "heads"])).toEqual([
+    "heads",
+    "body",
+    "tails",
+  ]);
+  expect(fixTheMeerkat(["bottom", "middle", "top"])).toEqual([
+    "top",
+    "middle",
+    "bottom",
+  ]);
+  expect(fixTheMeerkat(["ground", "rainbow", "sky"])).toEqual([
+    "sky",
+    "rainbow",
+    "ground",
+  ]);
+  expect(fixTheMeerkat(["lower legs", "torso", "upper legs"])).toEqual([
+    "upper legs",
+    "torso",
+    "lower legs",
+  ]);
 });

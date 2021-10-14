@@ -78,9 +78,6 @@ export function spinWordsWithMap(inputString: string): string {
 }
 
 /**
- * You are given an array (which will have a length of at least 3, but could be very large) containing integers. The array is either entirely comprised of odd integers or entirely comprised of even integers except for a single integer N. Write a method that takes the array as an argument and returns this "outlier" N.
-
-/**
  * Takes an array of either odd or even integrers, EXCEPT one value - this method finds and return the outlier
  * @param array: number[] - given array of numbers (odd or even, except one value)
  * @returns answer: number the outlier value
@@ -115,16 +112,28 @@ export function outlier(array: number[]): number {
   return answer;
 }
 
-// Pete likes to bake some cakes. He has some recipes and ingredients. Unfortunately he is not good in maths. Can you help him to find out, how many cakes he could bake considering his recipes?
+/**
+ * Takes the recipe (object) and the available ingredients (also an object) and returns the maximum number of cakes that can be baked (integer)
+ * @param recipe: object - an object of ingredients
+ * @returns the number of cakes that can be baked
+ */
+export function cakes(
+  recipe: { [k: string]: number },
+  ingredients: { [k: string]: number },
+): number {
+  let array = [];
+  for (let item in recipe) {
+    array.push(Math.floor(ingredients[item] / recipe[item]));
+  }
+  return array.includes(NaN) ? 0 : Math.min(...array);
+}
 
-// Write a function cakes(), which takes the recipe (object) and the available ingredients (also an object) and returns the maximum number of cakes Pete can bake (integer). For simplicity there are no units for the amounts (e.g. 1 lb of flour or 200 g of sugar are simply 1 or 200). Ingredients that are not present in the objects, can be considered as 0.
-
-// Examples:
-
-// // must return 2
-// cakes({flour: 500, sugar: 200, eggs: 1}, {flour: 1200, sugar: 1200, eggs: 5, milk: 200});
-// // must return 0
-// cakes({apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100}, {sugar: 500, flour: 2000, milk: 2000});
+export function fixTheMeerkat(arr: string[]): string[] {
+  let temp = arr[2];
+  arr[2] = arr[0];
+  arr[0] = temp;
+  return arr;
+}
 
 // Write a test for the next bit of functionality you want to add.
 // Write the functional code until the test passes.
