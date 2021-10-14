@@ -22,9 +22,9 @@ test("count the number of words, minus the exceptions", () => {
 });
 
 test("Returns outlier from odd/even array input", () => {
-  // expect(outlier([1, 3, 5, 7, 9, 10]).toBe(10));
-  // expect(outlier([160, 3, 1719, 19, 11, 13, -21]).toEqual(160));
-  // expect(outlier([2, 4, 0, 100, 4, 11, 2602, 36]).toEqual(11));
+  expect(outlier([1, 3, 5, 7, 9, 10])).toBe(10);
+  expect(outlier([160, 3, 1719, 19, 11, 13, -21])).toBe(160);
+  expect(outlier([2, 4, 0, 100, 4, 11, 2602, 36])).toBe(11);
 });
 
 test("Return 'like' text output for given number of names", () => {
@@ -46,9 +46,7 @@ test("Returns a sentence with words over 5 characters reversed.", () => {
 });
 
 test("Returns a sentence with words over 5 characters reversed.", () => {
-  expect(spinWordsWithMap("Hey fellow warriors").match("Hey wollef sroirraw"));
-  expect(spinWordsWithMap("This is a test").match("This is a test"));
-  expect(
-    spinWordsWithMap("This is another test").match("This is rehtona test"),
-  );
+  expect(spinWordsWithMap("Hey fellow warriors")).toBe("Hey wollef sroirraw");
+  expect(spinWordsWithMap("This is a test")).toBe("This is a test");
+  expect(spinWordsWithMap("This is another test")).toBe("This is rehtona test");
 });
