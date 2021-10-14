@@ -30,21 +30,19 @@ test("Returns outlier from odd/even array input", () => {
 });
 
 test("Return 'like' text output for given number of names", () => {
-  expect(likes([]).match("No one likes this"));
-  expect(likes(["Peter"]).match("Peter likes this"));
-  expect(likes(["Jacob", "Alex"]).match("Jacob and Alex like this"));
-  expect(likes(["Max", "John", "Mark"]).match("Max, John and Mark like this"));
-  expect(
-    likes(["Alex", "Jacob", "Mark", "Max"]).match(
-      "Alex, Jacob and 2 others like this",
-    ),
+  expect(likes([])).toBe("No one likes this");
+  expect(likes(["Peter"])).toBe("Peter likes this");
+  expect(likes(["Jacob", "Alex"])).toBe("Jacob and Alex like this");
+  expect(likes(["Max", "John", "Mark"])).toBe("Max, John and Mark like this");
+  expect(likes(["Alex", "Jacob", "Mark", "Max"])).toBe(
+    "Alex, Jacob and 2 others like this",
   );
 });
 
 test("Returns a sentence with words over 5 characters reversed.", () => {
-  expect(spinWords("Hey fellow warriors").match("Hey wollef sroirraw"));
-  expect(spinWords("This is a test").match("This is a test"));
-  expect(spinWords("This is another test").match("This is rehtona test"));
+  expect(spinWords("Hey fellow warriors")).toBe("Hey wollef sroirraw");
+  expect(spinWords("This is a test")).toBe("This is a test");
+  expect(spinWords("This is another test")).toBe("This is rehtona test");
 });
 
 test("Returns a sentence with words over 5 characters reversed.", () => {
