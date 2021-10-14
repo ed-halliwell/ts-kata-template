@@ -14,7 +14,7 @@ export function sum(a: number, b: number): number {
  * @returns the word count
  */
 export function wordCount(inputString: string): number {
-  let count = 0;
+  let count: number = 0;
   const exclusions = ["a", "the", "on", "at", "of", "upon", "in", "as"];
   let stringSplit = inputString
     .replace(/([^A-Za-z\s])/g, " ")
@@ -82,8 +82,8 @@ export function spinWordsWithMap(inputString: string): string {
 
 /**
  * Takes an array of either odd or even integrers, EXCEPT one value - this method finds and return the outlier
- * @param array - given array of numbers (odd or even, except one value)
- * @returns the outlier value
+ * @param array: number[] - given array of numbers (odd or even, except one value)
+ * @returns answer: number the outlier value
  */
 export function outlier(array: number[]): number {
   //declare variables

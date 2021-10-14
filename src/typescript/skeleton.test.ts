@@ -21,6 +21,12 @@ test("count the number of words, minus the exceptions", () => {
   expect(wordCount("a the on at of upon in as")).toBe(0);
 });
 
+test("Returns outlier from odd/even array input", () => {
+  // expect(outlier([1, 3, 5, 7, 9, 10]).toBe(10));
+  // expect(outlier([160, 3, 1719, 19, 11, 13, -21]).toEqual(160));
+  // expect(outlier([2, 4, 0, 100, 4, 11, 2602, 36]).toEqual(11));
+});
+
 test("Return 'like' text output for given number of names", () => {
   expect(likes([]).match("No one likes this"));
   expect(likes(["Peter"]).match("Peter likes this"));
@@ -45,10 +51,4 @@ test("Returns a sentence with words over 5 characters reversed.", () => {
   expect(
     spinWordsWithMap("This is another test").match("This is rehtona test"),
   );
-});
-
-test("Returns outlier from odd/even array input", () => {
-  // expect(outlier([1, 3, 5, 7, 9, 10]).Equal(10));
-  // expect(outlier([160, 3, 1719, 19, 11, 13, -21]).toBe(160));
-  // expect(outlier([2, 4, 0, 100, 4, 11, 2602, 36]).toBe(11));
 });
