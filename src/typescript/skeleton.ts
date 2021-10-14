@@ -77,6 +77,44 @@ export function spinWordsWithMap(inputString: string): string {
   return outputWords.join(" ").trim();
 }
 
+/**
+ * You are given an array (which will have a length of at least 3, but could be very large) containing integers. The array is either entirely comprised of odd integers or entirely comprised of even integers except for a single integer N. Write a method that takes the array as an argument and returns this "outlier" N.
+
+/**
+ * Takes an array of either odd or even integrers, EXCEPT one value - this method finds and return the outlier
+ * @param array - given array of numbers (odd or even, except one value)
+ * @returns the outlier value
+ */
+export function outlier(array: number[]): number {
+  //declare variables
+  let answer: number = 0,
+    evenCount: number = 0,
+    oddCount: number = 0;
+
+  //determine whether the array has odds or evens, need to check 3 elements to be sure
+  array[0] % 2 === 0 ? evenCount++ : oddCount++;
+  array[1] % 2 === 0 ? evenCount++ : oddCount++;
+  array[2] % 2 === 0 ? evenCount++ : oddCount++;
+
+  //if the list is even then select the odd element and set it to answer
+  if (evenCount > oddCount) {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] % 2 !== 0) {
+        answer = array[i];
+      }
+    }
+  }
+  //if the list is odd then select the even element and set it to answer
+  else {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] % 2 === 0) {
+        answer = array[i];
+      }
+    }
+  }
+  return answer;
+}
+
 // Write a test for the next bit of functionality you want to add.
 // Write the functional code until the test passes.
 // Refactor both new and old code to make it well structured.

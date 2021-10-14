@@ -25,6 +25,10 @@
     "format:check": "prettier --check src",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "start:js": "node src/javascript",
+    "start:ts": "ts-node src/typscript",
+    "compile": "tsc",
+    "start:build": "node build"
   }
 }
