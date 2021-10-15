@@ -7,6 +7,7 @@ import {
   outlier,
   cakes,
   fixTheMeerkat,
+  order,
 } from "./skeleton";
 
 test("sum adds two numbers", () => {
@@ -21,12 +22,6 @@ test("count the number of words, minus the exceptions", () => {
     ),
   ).toBe(112);
   expect(wordCount("a the on at of upon in as")).toBe(0);
-});
-
-test("Returns outlier from odd/even array input", () => {
-  expect(outlier([1, 3, 5, 7, 9, 10])).toBe(10);
-  expect(outlier([160, 3, 1719, 19, 11, 13, -21])).toBe(160);
-  expect(outlier([2, 4, 0, 100, 4, 11, 2602, 36])).toBe(11);
 });
 
 test("Return 'like' text output for given number of names", () => {
@@ -45,13 +40,19 @@ test("Returns a sentence with words over 5 characters reversed.", () => {
   expect(spinWords("This is another test")).toBe("This is rehtona test");
 });
 
-test("Returns a sentence with words over 5 characters reversed.", () => {
+test("USING MAP. Returns a sentence with words over 5 characters reversed.", () => {
   expect(spinWordsWithMap("Hey fellow warriors")).toBe("Hey wollef sroirraw");
   expect(spinWordsWithMap("This is a test")).toBe("This is a test");
   expect(spinWordsWithMap("This is another test")).toBe("This is rehtona test");
 });
 
-test("something", () => {
+test("Returns outlier from odd/even array input", () => {
+  expect(outlier([1, 3, 5, 7, 9, 10])).toBe(10);
+  expect(outlier([160, 3, 1719, 19, 11, 13, -21])).toBe(160);
+  expect(outlier([2, 4, 0, 100, 4, 11, 2602, 36])).toBe(11);
+});
+
+test("The recipe function returns the correct number of cakes it's possible to make from the ingredients", () => {
   expect(
     cakes(
       { flour: 500, sugar: 200, eggs: 1 },
@@ -92,4 +93,12 @@ test("Animals wrong way round", () => {
     "torso",
     "lower legs",
   ]);
+});
+
+test("Reorders the words in a string as per the number contains in each word.", () => {
+  expect(order("is2 Thi1s T4est 3a")).toBe("Thi1s is2 3a T4est");
+  expect(order("4of Fo1r pe6ople g3ood th5e the2")).toBe(
+    "Fo1r the2 g3ood 4of th5e pe6ople",
+  );
+  expect(order("")).toBe("");
 });

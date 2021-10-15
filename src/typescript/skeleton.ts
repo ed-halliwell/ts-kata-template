@@ -84,9 +84,9 @@ export function spinWordsWithMap(inputString: string): string {
  */
 export function outlier(array: number[]): number {
   //declare variables
-  let answer: number = 0,
-    evenCount: number = 0,
-    oddCount: number = 0;
+  let answer: number = 0;
+  let evenCount: number = 0;
+  let oddCount: number = 0;
 
   //determine whether the array has odds or evens, need to check 3 elements to be sure
   array[0] % 2 === 0 ? evenCount++ : oddCount++;
@@ -135,6 +135,17 @@ export function fixTheMeerkat(arr: string[]): string[] {
   return arr;
 }
 
-// Write a test for the next bit of functionality you want to add.
-// Write the functional code until the test passes.
-// Refactor both new and old code to make it well structured.
+/**
+ * Given an string where each word contains a number, sort the words in the order of the numbers (ascending)
+ * @param words: string - each word in the string will contain a single number
+ * @returns a string with the words sorted in order
+ */
+export function order(words: string): string {
+  if (words.length === 0) return "";
+  let resultString = [];
+  let wordArray = words.split(" ");
+  for (let i = 1; i < wordArray.length + 1; i++) {
+    resultString.push(wordArray.find((word: string) => word.includes(`${i}`)));
+  }
+  return resultString.join(" ").trim();
+}
